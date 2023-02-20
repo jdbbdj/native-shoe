@@ -1,9 +1,8 @@
 import { View, FlatList } from "react-native";
 import React from "react";
-import products from "../../utils/products";
 import Product from "./Product";
 import styles from "./style";
-const Products = () => {
+const Products = ({ products }) => {
   return (
     <FlatList
       style={styles.productsContainer}
