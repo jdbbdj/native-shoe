@@ -11,9 +11,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
-  middleSection: {},
+  middleSection: {
+    justifyContent: "space-between",
+  },
   buttons: {
     flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   image: {
     width: screenWidth * 0.3,
