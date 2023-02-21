@@ -4,6 +4,7 @@ const screenWidth = Dimensions.get("window").width;
 const styles = StyleSheet.create({
   productScreenContainer: {
     marginTop: 40,
+    marginBottom: 60,
   },
   image: {
     width: "100%",
