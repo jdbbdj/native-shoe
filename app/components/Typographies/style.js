@@ -6,10 +6,16 @@ const styles = StyleSheet.create({
     fontSize: 32,
     lineHeight: 35,
   },
-  price: {
-    fontWeight: "600",
+  productTitle: {
+    fontWeight: "700",
     fontSize: 24,
     lineHeight: 27,
+  },
+
+  price: {
+    fontWeight: "600",
+    fontSize: 18,
+    lineHeight: 22,
   },
   default: {
     fontWeight: "400",
