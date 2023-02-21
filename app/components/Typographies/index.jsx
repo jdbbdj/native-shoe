@@ -7,6 +7,8 @@ const Typographies = ({ type, text }) => {
     switch (type) {
       case "title":
         return styles.title;
+      case "product-title":
+        return styles.productTitle;
       case "price":
         return styles.price;
       default:
