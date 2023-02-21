@@ -2,7 +2,7 @@ import { View, Text, Pressable } from "react-native";
 import React, { useState } from "react";
 import styles from "./style";
 
-const Button = ({ type, text }) => {
+const Button = ({ type, handlePress, text }) => {
   const [timesPressed, setTimesPressed] = useState(0);
 
   const buttonStyleHandler = () => {
@@ -19,6 +19,7 @@ const Button = ({ type, text }) => {
   };
 
   const handleButton = () => {
+    handlePress();
     setTimesPressed((current) => current + 1);
   };
   return (
@@ -40,7 +41,7 @@ const Button = ({ type, text }) => {
             typeHandler(),
           ]}
         >
-          {"ADD TO CART"}
+          {text}
         </Text>
       )}
     </Pressable>

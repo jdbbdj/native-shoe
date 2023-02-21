@@ -9,6 +9,10 @@ import Button from "../../components/Button";
 const ProductDetails = () => {
   const product = products[0];
 
+  const handleAddToCart = () => {
+    console.log("CLICKED");
+  };
+
   return (
     <View>
       <ScrollView style={styles.productScreenContainer}>
@@ -19,7 +23,11 @@ const ProductDetails = () => {
         {/*Navigation Icons*/}
       </ScrollView>
       {/*CTA button*/}
-      <Button type="default" text={"ADD TO CART"} />
+      <Button
+        type="default"
+        handlePress={() => handleAddToCart()}
+        text={"ADD TO CART"}
+      />
     </View>
   );
 };
