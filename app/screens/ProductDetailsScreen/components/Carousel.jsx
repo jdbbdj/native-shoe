@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList } from "react-native";
+import { View, Image, FlatList } from "react-native";
 import React from "react";
 import styles from "../style";
 const Carousel = ({ product }) => {
