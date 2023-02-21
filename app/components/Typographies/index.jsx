@@ -2,7 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import styles from "./style";
 
-const Typographies = ({ type, text }) => {
+const Typographies = ({ type, text, style }) => {
   const typeHandler = () => {
     switch (type) {
       case "title":
@@ -16,7 +16,7 @@ const Typographies = ({ type, text }) => {
     }
   };
   return (
-    <View>
+    <View style={{ ...style }}>
       <Text style={typeHandler()}>{text}</Text>
     </View>
   );
