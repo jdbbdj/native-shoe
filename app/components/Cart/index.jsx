@@ -3,20 +3,35 @@ import { Feather } from "@expo/vector-icons";
 import React, { useState } from "react";
 import styles from "./style";
 import Typographies from "../Typographies";
-const Cart = ({ data }) => {
-  console.log(data.product.image);
+const Cart = ({ data, addQuantity, decreaseQuantity }) => {
+  const [timesPressed, setTimesPressed] = useState(0);
+
   return (
     <View style={styles.cart}>
-      <Image source={{ uri: data.product.image }} style={styles.image} />
+      <Image source={{ uri: data?.product.image }} style={styles.image} />
       <View style={styles.middleSection}>
         <View>
-          <Typographies type="product-title" text={`${data.product.name}`} />
-          <Typographies type="default" text={`Size: ${data.size}`} />
+          <Typographies type="product-title" text={`${data?.product.name}`} />
+          <Typographies type="default" text={`Sizes: ${data?.size}`} />
         </View>
         <View style={styles.buttons}>
-          <Feather name="minus-circle" size={24} color={`rgb(35,35,35)`} />
-          <Typographies type="default" text={`${data.quantity}`} />
-          <Feather name="plus-circle" size={24} color={`rgb(35,35,35)`} />
+          <Feather
+            onPress={() => {
+              decreaseQuantity();
+            }}
+            name="minus-circle"
+            size={24}
+            color={"rgb(35,35,35)"}
+          />
+          <Typographies type="default" text={`${data?.quantity}`} />
+          <Feather
+            onPress={() => {
+              addQuantity();
+            }}
+            name="plus-circle"
+            size={24}
+            color={`rgb(35,35,35)`}
+          />
         </View>
       </View>
       <Typographies
