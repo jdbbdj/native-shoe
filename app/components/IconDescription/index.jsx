@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import styles from "./style";
 import Global from "../../GlobalStyling";
 import RadioButton from "../RadioButton";
-const IconDescription = ({ icon, description, type, avatar }) => {
+const IconDescription = ({ icon, description, type, avatar, styled }) => {
   const containerHandler = () => {
     switch (type) {
       case "titlePrice":
@@ -13,6 +13,8 @@ const IconDescription = ({ icon, description, type, avatar }) => {
         return styles.avatarFlexStartType;
       case "avatarType":
         return styles.avatarStyle;
+      case "footerFlexEnd":
+        return styles.footerFlexEnd;
       case "defaultType":
         return styles.iconDescription;
       default:
@@ -24,6 +26,8 @@ const IconDescription = ({ icon, description, type, avatar }) => {
     switch (type) {
       case "titlePrice":
         return styles.titlePriceIcon;
+      case "footerFlexEnd":
+        return styles.footerIconHandler;
       case "avatarType":
       case "avatarFlexStartType":
       case "defaultType":
@@ -53,12 +57,14 @@ const IconDescription = ({ icon, description, type, avatar }) => {
   };
 
   return (
-    <View style={containerHandler()}>
+    <View style={[containerHandler(), { ...styled }]}>
       <View
         style={[
           styles.row,
-          type === "avatarFlexStartType" && styles.justify,
-          type === "avatarFlexStartType" && styles.rowWidth,
+          (type === "avatarFlexStartType" || type === "footerFlexEnd") &&
+            styles.justify,
+          (type === "avatarFlexStartType" || type === "footerFlexEnd") &&
+            styles.rowWidth,
         ]}
       >
         <View style={iconHandler()}>{icon}</View>

@@ -4,6 +4,11 @@ const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
 
 const Global = StyleSheet.create({
+  row: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   globalMarginHorizontal: {
     marginHorizontal: screenWidth * 0.05,
   },
@@ -43,6 +48,9 @@ const Global = StyleSheet.create({
     width: "100%",
     aspectRatio: 1,
     borderRadius: 40 / 2,
+  },
+  marginVertical10: {
+    marginBottom: 10,
   },
 });
 

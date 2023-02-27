@@ -36,6 +36,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: "100%",
   },
+  footerFlexEnd: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+  },
   descriptionIcon: {
     alignItems: "flex-end",
     justifyContent: "center",
@@ -43,6 +49,7 @@ const styles = StyleSheet.create({
   iconHandler: {
     marginHorizontal: 10,
   },
+  footerIconHandler: {},
   titlePriceIcon: {
     marginRight: 20,
   },
