@@ -6,6 +6,7 @@ import styles from "./style";
 import Typographies from "../../components/Typographies";
 import CartHeader from "./components/CartHeader";
 import CartFooter from "./components/CartFooter";
+import Button from "../../components/Button";
 const CartScreen = () => {
   const addQuantity = () => {
     console.log("ADD");
@@ -15,20 +16,23 @@ const CartScreen = () => {
   };
   console.log(cart);
   return (
-    <View style={styles.cartScreenContainer}>
-      <FlatList
-        data={cart}
-        renderItem={({ item }) => (
-          <Cart
-            data={item}
-            addQuantity={addQuantity}
-            decreaseQuantity={decreaseQuantity}
-          />
-        )}
-        ListHeaderComponent={() => <CartHeader />}
-        ListFooterComponent={() => <CartFooter />}
-      />
-    </View>
+    <>
+      <View style={styles.cartScreenContainer}>
+        <FlatList
+          data={cart}
+          renderItem={({ item }) => (
+            <Cart
+              data={item}
+              addQuantity={addQuantity}
+              decreaseQuantity={decreaseQuantity}
+            />
+          )}
+          ListHeaderComponent={() => <CartHeader />}
+          ListFooterComponent={() => <CartFooter />}
+        />
+      </View>
+      <Button type="default" text="CHECKOUT" />
+    </>
   );
 };
 
