@@ -5,11 +5,16 @@ import Carousel from "./components/Carousel";
 import Content from "./components/Content";
 import styles from "./style";
 import Button from "../../components/Button";
+import { useSelector, useDispatch } from "react-redux";
+import { cartSlice } from "../../redux/store/cartSlice";
 
 const ProductDetails = ({ navigation }) => {
-  const product = products[0];
+  const dispatch = useDispatch();
+  const selected = useSelector((state) => state.products.selectedProduct);
+  const product = selected;
 
   const handleAddToCart = () => {
+    dispatch(cartSlice.actions.addToCart({ product }));
     navigation.navigate("Cart");
   };
 

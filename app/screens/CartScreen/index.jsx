@@ -1,25 +1,49 @@
-import { View, Text, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import React, { useState } from "react";
-import cart from "../../utils/cart";
+
 import Cart from "../../components/Cart";
 import styles from "./style";
-import Typographies from "../../components/Typographies";
 import CartHeader from "./components/CartHeader";
 import CartFooter from "./components/CartFooter";
 import Button from "../../components/Button";
+
+import { useSelector, useDispatch } from "react-redux";
+import { cartSlice } from "../../redux/store/cartSlice";
+
 const CartScreen = () => {
-  const addQuantity = () => {
-    console.log("ADD");
+  const dispatch = useDispatch();
+  const carts = useSelector((state) => state.carts.carts);
+  const delivery = useSelector((state) => state.carts.deliveryFee);
+  const freeDelivery = useSelector((state) => state.carts.freeDelivery);
+  const cartsSubTotal = useSelector((state) =>
+    state.carts.carts.reduce(
+      (sum, cartItem) => sum + cartItem.product.price * cartItem.quantity,
+      0
+    )
+  );
+
+  const addQuantity = (data) => {
+    dispatch(
+      cartSlice.actions.changeQuantity({
+        productID: data.product.id,
+        amount: 1,
+      })
+    );
   };
-  const decreaseQuantity = () => {
-    console.log("MINUS");
+  const decreaseQuantity = (data) => {
+    dispatch(
+      cartSlice.actions.changeQuantity({
+        productID: data.product.id,
+        amount: -1,
+      })
+    );
   };
-  console.log(cart);
+
   return (
     <>
       <View style={styles.cartScreenContainer}>
         <FlatList
-          data={cart}
+          data={carts}
           renderItem={({ item }) => (
             <Cart
               data={item}
@@ -28,7 +52,13 @@ const CartScreen = () => {
             />
           )}
           ListHeaderComponent={() => <CartHeader />}
-          ListFooterComponent={() => <CartFooter />}
+          ListFooterComponent={() => (
+            <CartFooter
+              subtotal={cartsSubTotal}
+              freeDelivery={freeDelivery}
+              delivery={delivery}
+            />
+          )}
         />
       </View>
       <Button type="default" text="CHECKOUT" />
