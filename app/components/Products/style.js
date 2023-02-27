@@ -2,9 +2,8 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   productsContainer: {
-    width: "100%",
+    width: "90%",
     height: "80%",
-    paddingHorizontal: 10,
     marginTop: 10,
   },
 });
