@@ -7,6 +7,10 @@ const Global = StyleSheet.create({
   globalMarginHorizontal: {
     marginHorizontal: screenWidth * 0.05,
   },
+  globalAdvancedSearchMarginBottom: {
+    marginBottom: screenHeight * 0.005,
+    height: 200,
+  },
   shadowMotherContainer: {
     overflow: "hidden",
     paddingBottom: 5,
