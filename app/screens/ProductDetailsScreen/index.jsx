@@ -5,9 +5,10 @@ import Carousel from "./components/Carousel";
 import Content from "./components/Content";
 import styles from "./style";
 import Button from "../../components/Button";
-
+import { useSelector } from "react-redux";
 const ProductDetails = ({ navigation }) => {
-  const product = products[0];
+  const selected = useSelector((state) => state.products.selectedProduct);
+  const product = selected;
 
   const handleAddToCart = () => {
     navigation.navigate("Cart");

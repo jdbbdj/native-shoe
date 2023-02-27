@@ -14,7 +14,7 @@ const CartScreen = () => {
   const decreaseQuantity = () => {
     console.log("MINUS");
   };
-  console.log(cart);
+
   return (
     <>
       <View style={styles.cartScreenContainer}>
