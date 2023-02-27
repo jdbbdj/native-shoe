@@ -8,7 +8,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Typographies from "../Typographies";
 import Global from "../../GlobalStyling";
-const Footer = () => {
+const Footer = (props) => {
+  const { subtotal, freeDelivery, delivery } = props;
+
+  console.log(delivery);
   return (
     <View style={styles.footerContainer}>
       <IconDescription
@@ -20,7 +23,7 @@ const Footer = () => {
             <Typographies type="default" text="Subtotal: " />
           </View>
         }
-        description={<Typographies type="default" text="$4900" />}
+        description={<Typographies type="default" text={`$${subtotal}`} />}
       />
       <IconDescription
         styled={Global.marginVertical10}
@@ -35,7 +38,12 @@ const Footer = () => {
             <Typographies type="default" text="Delivery: " />
           </View>
         }
-        description={<Typographies type="default" text="$100" />}
+        description={
+          <Typographies
+            type="default"
+            text={`$${subtotal > freeDelivery ? 0 : delivery}`}
+          />
+        }
       />
       <IconDescription
         styled={Global.marginVertical10}
@@ -46,7 +54,14 @@ const Footer = () => {
             <Typographies type="price" text="Total: " />
           </View>
         }
-        description={<Typographies type="price" text="$5000" />}
+        description={
+          <Typographies
+            type="price"
+            text={`$${
+              subtotal > freeDelivery ? subtotal - delivery : subtotal + 60
+            }`}
+          />
+        }
       />
     </View>
   );

@@ -13,6 +13,14 @@ import { cartSlice } from "../../redux/store/cartSlice";
 const CartScreen = () => {
   const dispatch = useDispatch();
   const carts = useSelector((state) => state.carts.carts);
+  const delivery = useSelector((state) => state.carts.deliveryFee);
+  const freeDelivery = useSelector((state) => state.carts.freeDelivery);
+  const cartsSubTotal = useSelector((state) =>
+    state.carts.carts.reduce(
+      (sum, cartItem) => sum + cartItem.product.price * cartItem.quantity,
+      0
+    )
+  );
 
   const addQuantity = (data) => {
     dispatch(
@@ -44,7 +52,13 @@ const CartScreen = () => {
             />
           )}
           ListHeaderComponent={() => <CartHeader />}
-          ListFooterComponent={() => <CartFooter data={item} />}
+          ListFooterComponent={() => (
+            <CartFooter
+              subtotal={cartsSubTotal}
+              freeDelivery={freeDelivery}
+              delivery={delivery}
+            />
+          )}
         />
       </View>
       <Button type="default" text="CHECKOUT" />
