@@ -6,11 +6,11 @@ import Content from "./components/Content";
 import styles from "./style";
 import Button from "../../components/Button";
 
-const ProductDetails = () => {
+const ProductDetails = ({ navigation }) => {
   const product = products[0];
 
   const handleAddToCart = () => {
-    console.log("CLICKED");
+    navigation.navigate("Cart");
   };
 
   return (

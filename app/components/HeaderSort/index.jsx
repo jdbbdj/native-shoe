@@ -27,7 +27,6 @@ const HeaderSort = () => {
     setIndex(header.id === 0 ? 1 : 0);
   };
 
-  console.log(header);
   return (
     <View
       style={[
