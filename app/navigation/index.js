@@ -6,8 +6,11 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { navs } from "./navData";
 import Global from "../GlobalStyling";
 import Typographies from "../components/Typographies";
+import { useSelector } from "react-redux";
 const Stack = createNativeStackNavigator();
 const Navigation = () => {
+  const cart = useSelector((state) => state.carts.carts);
+  const cartNumber = cart.length;
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerTitleAlign: "center" }}>
@@ -32,7 +35,7 @@ const Navigation = () => {
                         size={30}
                         color="#000000"
                       />
-                      <Typographies type="default" text={`2`} />
+                      <Typographies type="default" text={cartNumber} />
                     </Pressable>
                   ),
               })}

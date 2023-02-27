@@ -1,13 +1,15 @@
-import { View, Text, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import React, { useState } from "react";
-import cart from "../../utils/cart";
+
 import Cart from "../../components/Cart";
 import styles from "./style";
-import Typographies from "../../components/Typographies";
 import CartHeader from "./components/CartHeader";
 import CartFooter from "./components/CartFooter";
 import Button from "../../components/Button";
+import { useSelector } from "react-redux";
 const CartScreen = () => {
+  const carts = useSelector((state) => state.carts.carts);
+  console.log(carts);
   const addQuantity = () => {
     console.log("ADD");
   };
@@ -19,7 +21,7 @@ const CartScreen = () => {
     <>
       <View style={styles.cartScreenContainer}>
         <FlatList
-          data={cart}
+          data={carts}
           renderItem={({ item }) => (
             <Cart
               data={item}
