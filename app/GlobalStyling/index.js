@@ -20,6 +20,26 @@ const Global = StyleSheet.create({
     elevation: 5,
     backgroundColor: "#ffffff",
   },
+  defaultborderWithShadow: {
+    backgroundColor: "white",
+    elevation: 3,
+    shadowColor: "#353535",
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+  },
+  iconAvatar: {
+    width: 40,
+    height: 40,
+    marginRight: screenWidth * 0.05,
+    borderWidth: 1,
+    borderRadius: 40 / 2,
+  },
+  defaultImage: {
+    width: "100%",
+    aspectRatio: 1,
+    borderRadius: 40 / 2,
+  },
 });
 
 export default Global;
