@@ -10,14 +10,32 @@ const navs = [
   {
     name: "Products",
     component: ProductsScreen,
+    options: {
+      headerShown: true,
+      presentation: "modal",
+      animationTypeForReplace: "push",
+      animation: "slide_from_right",
+    },
   },
   {
     name: "Cart",
     component: CartScreen,
+    options: {
+      headerShown: true,
+      presentation: "modal",
+      animationTypeForReplace: "push",
+      animation: "slide_from_right",
+    },
   },
   {
     name: "Product Details",
     component: ProductDetails,
+    options: {
+      headerShown: true,
+      presentation: "modal",
+      animationTypeForReplace: "push",
+      animation: "slide_from_right",
+    },
   },
 ];
 
@@ -27,7 +45,13 @@ const Navigation = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerTitleAlign: "center" }}>
         {navs.map((nav) => {
-          return <Stack.Screen name={nav.name} component={nav.component} />;
+          return (
+            <Stack.Screen
+              name={nav.name}
+              component={nav.component}
+              options={nav.options}
+            />
+          );
         })}
       </Stack.Navigator>
     </NavigationContainer>
