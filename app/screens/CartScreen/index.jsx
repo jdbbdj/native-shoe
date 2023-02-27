@@ -6,15 +6,29 @@ import styles from "./style";
 import CartHeader from "./components/CartHeader";
 import CartFooter from "./components/CartFooter";
 import Button from "../../components/Button";
-import { useSelector } from "react-redux";
+
+import { useSelector, useDispatch } from "react-redux";
+import { cartSlice } from "../../redux/store/cartSlice";
+
 const CartScreen = () => {
+  const dispatch = useDispatch();
   const carts = useSelector((state) => state.carts.carts);
-  console.log(carts);
-  const addQuantity = () => {
-    console.log("ADD");
+
+  const addQuantity = (data) => {
+    dispatch(
+      cartSlice.actions.changeQuantity({
+        productID: data.product.id,
+        amount: 1,
+      })
+    );
   };
-  const decreaseQuantity = () => {
-    console.log("MINUS");
+  const decreaseQuantity = (data) => {
+    dispatch(
+      cartSlice.actions.changeQuantity({
+        productID: data.product.id,
+        amount: -1,
+      })
+    );
   };
 
   return (
@@ -30,7 +44,7 @@ const CartScreen = () => {
             />
           )}
           ListHeaderComponent={() => <CartHeader />}
-          ListFooterComponent={() => <CartFooter />}
+          ListFooterComponent={() => <CartFooter data={item} />}
         />
       </View>
       <Button type="default" text="CHECKOUT" />

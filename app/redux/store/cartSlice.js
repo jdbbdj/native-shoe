@@ -20,7 +20,17 @@ export const cartSlice = createSlice({
       }
     },
     changeQuantity: (state, action) => {
-      const newProduct = action.payload.product;
+      const { productID, amount } = action.payload;
+      const cartItem = state.carts.find((p) => p.product.id === productID);
+      if (cartItem) {
+        if (cartItem.quantity === 0) {
+          amount === -1
+            ? (cartItem.quantity = 0)
+            : (cartItem.quantity += amount);
+        } else {
+          cartItem.quantity += amount;
+        }
+      }
     },
   },
 });

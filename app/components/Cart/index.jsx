@@ -1,12 +1,11 @@
-import { View, Text, Image, Pressable, Feath } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import React, { useState } from "react";
 import styles from "./style";
 import Typographies from "../Typographies";
 import Global from "../../GlobalStyling";
-const Cart = ({ data, addQuantity, decreaseQuantity }) => {
-  const [timesPressed, setTimesPressed] = useState(0);
 
+const Cart = ({ data, addQuantity, decreaseQuantity }) => {
   return (
     <View style={Global.shadowMotherContainer}>
       <View style={[styles.cartWithShadow, Global.shadowChildElevated]}>
@@ -17,23 +16,23 @@ const Cart = ({ data, addQuantity, decreaseQuantity }) => {
             <Typographies type="default" text={`Sizes: ${data?.size}`} />
           </View>
           <View style={styles.buttons}>
-            <Feather
+            <TouchableOpacity
               onPress={() => {
-                decreaseQuantity();
+                decreaseQuantity(data);
               }}
-              name="minus-circle"
-              size={24}
-              color={"rgb(35,35,35)"}
-            />
+            >
+              <Feather name="minus-circle" size={24} color={"rgb(35,35,35)"} />
+            </TouchableOpacity>
+
             <Typographies type="default" text={`${data?.quantity}`} />
-            <Feather
+
+            <TouchableOpacity
               onPress={() => {
-                addQuantity();
+                addQuantity(data);
               }}
-              name="plus-circle"
-              size={24}
-              color={`rgb(35,35,35)`}
-            />
+            >
+              <Feather name="plus-circle" size={24} color={`rgb(35,35,35)`} />
+            </TouchableOpacity>
           </View>
         </View>
         <Typographies
