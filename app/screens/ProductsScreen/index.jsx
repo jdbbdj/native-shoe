@@ -3,11 +3,11 @@ import React from "react";
 import Products from "../../components/Products";
 import HeaderSort from "../../components/HeaderSort";
 import products from "../../utils/products";
-const ProductsScreen = () => {
+const ProductsScreen = ({ navigation }) => {
   return (
     <View>
       <HeaderSort />
-      <Products products={products} />
+      <Products products={products} navigation={navigation} />
     </View>
   );
 };

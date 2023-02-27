@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions } from "react-native";
 const screenWidth = Dimensions.get("window").width;
 const styles = StyleSheet.create({
   productScreenContainer: {
-    marginTop: 40,
+    marginTop: 10,
     marginBottom: 60,
   },
   image: {

@@ -4,7 +4,7 @@ const screenWidth = Dimensions.get("window").width;
 const styles = StyleSheet.create({
   headerContainer: {
     height: 100,
-    marginTop: 40,
+    marginTop: 10,
     marginHorizontal: screenWidth * 0.05,
   },
 });
